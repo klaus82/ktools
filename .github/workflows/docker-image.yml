@@ -23,6 +23,6 @@ jobs:
     - name: Build the Docker image
       run: |
         cd network
-        docker build . --file Dockerfile --tag ktools:latest
+        docker build . --file Dockerfile --tag $DOCKER_USER/$REPO_NAME:latest
     - name: Push the Docker image
       run: docker push $DOCKER_USER/$REPO_NAME:latest
