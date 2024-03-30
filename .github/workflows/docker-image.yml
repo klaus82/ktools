@@ -1,5 +1,11 @@
 name: Docker Image CI
 
+# Env variable
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+  REPO_NAME: ${{secrets.REPO_NAME}}
+
 on:
   push:
     branches: [ "main" ]
@@ -18,3 +24,5 @@ jobs:
       run: |
         cd network
         docker build . --file Dockerfile --tag ktools:latest
+    - name: Push the Docker image
+      run: docker push $DOCKER_USER/$REPO_NAME:latest
