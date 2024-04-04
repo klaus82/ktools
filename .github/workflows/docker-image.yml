@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI - network
 
 # Env variable
 env:
@@ -10,10 +10,15 @@ env:
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+    paths:
+      - network
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
+    paths:
+      - network
 jobs:
 
   build:
